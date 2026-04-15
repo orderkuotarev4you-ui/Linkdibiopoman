@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POMAN JASTEB</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: url('https://files.catbox.moe/jj3jez.jpg') no-repeat center/cover;
+    color:white;
+    text-align:center;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.75);
+    min-height:100vh;
+}
+
+.container {
+    max-width:400px;
+    margin:auto;
+    padding:20px;
+}
+
+h1 {
+    color:#00bfff;
+}
+
+input {
+    width:90%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    margin:10px 0;
+    text-align:center;
+}
+
+.link-btn {
+    display:block;
+    background:#111;
+    padding:14px;
+    margin:10px 0;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    border:1px solid #00bfff;
+    transition:0.3s;
+}
+
+.link-btn:hover {
+    background:#00bfff;
+    color:black;
+}
+
+.wa-main {
+    background:#25D366;
+    color:white;
+    border:none;
+}
+
+.pay-btn {
+    background:#00bfff;
+    color:black;
+}
+
+.popup {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-content {
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    width:80%;
+}
+
+.wa-btn {
+    background:#25D366;
+    color:white;
+    width:100%;
+}
+
+.close {
+    background:red;
+    color:white;
+    margin-top:10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="overlay">
+<div class="container">
+
+<h1>POMAN JASTEB</h1>
+
+<input type="text" id="nama" placeholder="Masukkan nama kamu">
+
+<!-- WA UTAMA -->
+<a href="https://wa.me/6285845915550" class="link-btn wa-main">
+💬 CHAT WHATSAPP ADMIN
+</a>
+
+<!-- LINK LAIN -->
+<a href="https://order-jasteb-otomatis.vercel.app/" class="link-btn">
+⚡ ORDER DI WEBSITE
+</a>
+
+<a href="https://whatsapp.com/channel/0029VbCZGT911ulJVS0t5H2l" class="link-btn">
+📢 SALURAN WHATSAPP
+</a>
+
+<!-- TOMBOL BAYAR -->
+<button class="link-btn pay-btn" onclick="bukaPopup()">
+💳 SUDAH BAYAR? KIRIM BUKTI
+</button>
+
+</div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<div class="popup-content">
+
+<h2>Metode Pembayaran</h2>
+<p>DANA / OVO / GOPAY</p>
+
+<p><b>Kirim bukti transfer ke WhatsApp</b></p>
+
+<button class="wa-btn" onclick="kirimWA()">📤 Kirim Bukti TF</button>
+<button class="close" onclick="tutupPopup()">Tutup</button>
+
+</div>
+</div>
+
+<script>
+function bukaPopup(){
+    document.getElementById("popup").style.display = "flex";
+}
+
+function tutupPopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+function kirimWA(){
+    let nama = document.getElementById("nama").value;
+
+    if(nama == ""){
+        alert("Isi nama dulu!");
+        return;
+    }
+
+    let pesan = `Halo bang POMAN, saya ${nama} sudah transfer. Ini bukti TF saya.`;
+
+    let url = `https://wa.me/6285845915550?text=${encodeURIComponent(pesan)}`;
+
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
